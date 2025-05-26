@@ -1,84 +1,66 @@
 <?php
 session_start();
+require_once 'db.php';
+
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'etudiant') {
     header("Location: login.php");
     exit;
 }
-?>
 
+// Récupérer les infos de l'étudiant
+$stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+$stmt->execute([$_SESSION['user_id']]);
+$etudiant = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Récupérer les cours
+$cours_stmt = $pdo->prepare("SELECT * FROM cours");
+$cours_stmt->execute();
+$cours = $cours_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Définir la photo (image par défaut si vide)
+$photo = !empty($etudiant['photo']) ? htmlspecialchars($etudiant['photo']) : 'https://via.placeholder.com/150?text=Photo';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Espace Étudiant</title>
-    <style>
-        body {
-            background-color: #e6f0fa;
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .header {
-            background: linear-gradient(to right, #FFA500, #1E90FF);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        .container {
-            margin-top: 40px;
-            background: #f9f9f9;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px #ccc;
-            width: 80%;
-            max-width: 800px;
-            text-align: center;
-        }
-        img {
-            max-width: 200px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
-        h2 {
-            color: #333;
-        }
-    </style>
+    <title>Espace Étudiant - ISDG</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="header">
-        <h1>Bienvenue sur ISDG - Espace Étudiant</h1>
-    </div>
+<body class="bg-white">
+    <div class="container mt-4">
+        <div class="text-center p-4 bg-primary text-white rounded">
+            <h1>Bienvenue sur ISDG - Espace Étudiant</h1>
+        </div>
 
-    <div class="container">
-        <img src="images/eleve.png" alt="Image Élève">
-        <h2>Bonjour étudiant !</h2>
-        <p>Vous êtes connecté en tant qu'étudiant. Vous pouvez consulter vos cours et vos devoirs ici.</p>
-    </div>
-        <script>
-  // Effet d'apparition
-  document.body.style.opacity = 0;
-  window.onload = () => {
-    document.body.style.transition = 'opacity 0.5s';
-    document.body.style.opacity = 1;
-  };
+        <div class="mt-5">
+            <h3>📚 Liste des cours disponibles</h3>
+            <?php if (!empty($cours)): ?>
+                <ul class="list-group">
+                    <?php foreach ($cours as $cours_item): ?>
+                        <li class="list-group-item"><?= htmlspecialchars($cours_item['titre'] ?? '') ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php else: ?>
+                <p>Aucun cours disponible.</p>
+            <?php endif; ?>
+        </div>
 
-  // Effet de disparition quand on clique sur un lien
-  const liens = document.querySelectorAll('a');
-  liens.forEach(lien => {
-    lien.addEventListener('click', function(e) {
-      e.preventDefault();
-      const href = this.getAttribute('href');
-      document.body.style.opacity = 0;
-      setTimeout(() => {
-        window.location.href = href;
-      }, 500);
-    });
-  });
-</script>
+        <div class="mt-5">
+            <h3>📖 Le Compendium</h3>
+            <div class="card p-4">
+                <div class="text-center">
+                    <img src="<?= $photo ?>" alt="Photo Étudiant" class="rounded-circle mb-3" width="150">
+                    <h4><?= htmlspecialchars(($etudiant['prenom'] ?? '') . ' ' . ($etudiant['nom'] ?? '')) ?></h4>
+                </div>
+                <ul class="list-group list-group-flush mt-3">
+                    <li class="list-group-item"><strong>Date de naissance :</strong> <?= htmlspecialchars($etudiant['date_naissance'] ?? '') ?></li>
+                    <li class="list-group-item"><strong>Pays d'origine :</strong> <?= htmlspecialchars($etudiant['pays'] ?? '') ?></li>
+                    <li class="list-group-item"><strong>Formation :</strong> <?= htmlspecialchars($etudiant['formation'] ?? '') ?></li>
+                    <li class="list-group-item"><strong>Email :</strong> <?= htmlspecialchars($etudiant['email'] ?? '') ?></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

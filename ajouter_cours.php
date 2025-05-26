@@ -24,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Ajouter Cours</title>
     <style>
         body {
@@ -57,7 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
+    
     <h2>Ajouter un cours</h2>
+
     <?php if ($success) echo "<p style='color:green;'>$success</p>"; ?>
     <form method="POST">
         <input type="text" name="nom" placeholder="Nom du cours" required>
@@ -95,6 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     });
   });
 </script>
+<?php include("Includes/retour_prof.php"); ?>
 
 </body>
 </html>

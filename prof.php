@@ -5,64 +5,72 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'professeur') {
     exit;
 }
 ?>
-
+<?php include("Includes/navbar.php"); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Espace Professeur</title>
-    <style>
-        body {
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            color: #ff6600;
-        }
-        a {
-            display: inline-block;
-            margin: 15px;
-            padding: 10px 20px;
-            background-color: #0077cc;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        a:hover {
-            background-color: #005fa3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Espace Professeur</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      position: relative;
+    }
+    h2 {
+      color: #ff6600;
+      font-size: 60px;
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    a.btn-custom {
+      margin: 15px;
+      padding: 10px 25px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    a.btn-custom:hover {
+      background-color: #005fa3;
+    }
+    a.logout {
+      background-color: gray !important;
+    }
+    img.fullscreen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.4);
+    }
+  </style>
 </head>
-
 <body>
-   <h1>Bienvenue Professeur</h1>
-    <a href="ajouter_cours.php">Ajouter un cours</a>
-    <a href="modifier_cours.php">Modifier un cours</a>
-    <a href="supprimer_cours.php">Supprimer un cours</a>
-    <br><br>
-    <a href="logout.php" style="background-color: gray;">Déconnexion</a>
-    <script>
-  // Effet d'apparition
-  document.body.style.opacity = 0;
-  window.onload = () => {
-    document.body.style.transition = 'opacity 0.5s';
-    document.body.style.opacity = 1;
-  };
+  <img src="image/images/th (3).jpeg" alt="Fond ISDG" class="fullscreen">
+  <h2>Bienvenue Professeur</h2>
+  <a href="logout.php" class="btn-custom logout">Déconnexion</a>
 
-  // Effet de disparition quand on clique sur un lien
-  const liens = document.querySelectorAll('a');
-  liens.forEach(lien => {
-    lien.addEventListener('click', function(e) {
-      e.preventDefault();
-      const href = this.getAttribute('href');
-      document.body.style.opacity = 0;
-      setTimeout(() => {
-        window.location.href = href;
-      }, 500);
+  <script>
+    document.body.style.opacity = 0;
+    window.onload = () => {
+      document.body.style.transition = 'opacity 0.5s';
+      document.body.style.opacity = 1;
+    };
+    document.querySelectorAll('a').forEach(lien => {
+      lien.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = this.getAttribute('href');
+        document.body.style.opacity = 0;
+        setTimeout(() => window.location.href = href, 500);
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
