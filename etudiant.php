@@ -35,15 +35,30 @@ $photo = !empty($etudiant['photo']) ? htmlspecialchars($etudiant['photo']) : 'ht
 
         <div class="mt-5">
             <h3>📚 Liste des cours disponibles</h3>
-            <?php if (!empty($cours)): ?>
-                <ul class="list-group">
-                    <?php foreach ($cours as $cours_item): ?>
-                        <li class="list-group-item"><?= htmlspecialchars($cours_item['titre'] ?? '') ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            <?php else: ?>
-                <p>Aucun cours disponible.</p>
-            <?php endif; ?>
+            <table class="table table-bordered table-hover table table-striped"> 
+                <thead>
+                    <tr>
+                        <th>Jour</th>      
+                        <th>Cours</th>
+                        <th>Heure</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (!empty($cours)): ?>
+                        <?php foreach ($cours as $cours_item): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($cours_item['jour'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($cours_item['nom'] ?? '') ?></td>
+                                <td><?= htmlspecialchars($cours_item['heure'] ?? '') ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                     <?php else: ?>
+                        <tr>
+                            <td colspan="3">Aucun cours disponible.</td>"
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>     
         </div>
 
         <div class="mt-5">

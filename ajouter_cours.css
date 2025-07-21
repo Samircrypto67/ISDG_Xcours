@@ -1,0 +1,28 @@
+body {
+            background-color: #e6f0ff;
+            font-family: Arial;
+            padding: 40px;
+            color: #333;
+        }
+        h2 {
+            color: #0077cc;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+        input, select, button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+        }

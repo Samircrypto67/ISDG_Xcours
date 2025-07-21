@@ -47,94 +47,9 @@ else {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="login.css" rel="stylesheet">
     <title>Connexion</title>
-    <style>
-        .logo-container {
-    margin-top: 50px;
-    text-align: center;
-    font-size: 48px;
-    font-weight: bold;
-    color: orange;
-    animation: glow 2s infinite alternate ease-in-out;
-    text-shadow: 2px 2px 5px blue;
-  }
-
-  @keyframes glow {
-    from {
-      transform: scale(1) rotate(0deg);
-      text-shadow: 0 0 10px blue, 0 0 20px gray;
-    }
-    to {
-      transform: scale(1.1) rotate(5deg);
-      text-shadow: 0 0 20px orange, 0 0 30px blue;
-    }
-  }
-        body {
-            margin: 0;
-            background: linear-gradient(135deg, #1e1e2f, #2c2c2c);
-            font-family: 'Segoe UI', sans-serif;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background-color: #2f2f2f;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-            text-align: center;
-            width: 350px;
-        }
-        h1 {
-            font-size: 40px;
-            color: #FFA500; /* Orange */
-            margin-bottom: 30px;
-        }
-        h2 {
-            margin-bottom: 25px;
-            color: #4e9af1; /* Bleu */
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 6px;
-            background-color: #444;
-            color: white;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #FFA500; /* Orange */
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        button:hover {
-            background-color: #e69500;
-        }
-        .error {
-            color: red;
-            margin-top: 10px;
-        }
-        .link {
-            margin-top: 15px;
-            font-size: 14px;
-        }
-        .link a {
-            color: #4e9af1;
-            text-decoration: none;
-        }
-        .link a:hover {
-            text-decoration: underline;
-        }
-    </style>
+ 
 </head>
     <body>
         <div class="logo-container">LIL Kicht Inc.</div>

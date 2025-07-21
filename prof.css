@@ -1,0 +1,36 @@
+body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      position: relative;
+    }
+    h2 {
+      color: #ff6600;
+      font-size: 60px;
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    a.btn-custom {
+      margin: 15px;
+      padding: 10px 25px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    a.btn-custom:hover {
+      background-color: #005fa3;
+    }
+    a.logout {
+      background-color: gray !important;
+    }
+    img.fullscreen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.4);
+    }

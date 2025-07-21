@@ -25,38 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="ajouter_cours.css" rel="stylesheet">
     <title>Ajouter Cours</title>
-    <style>
-        body {
-            background-color: #e6f0ff;
-            font-family: Arial;
-            padding: 40px;
-            color: #333;
-        }
-        h2 {
-            color: #0077cc;
-        }
-        form {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            margin: auto;
-            box-shadow: 0 0 10px #ccc;
-        }
-        input, select, button {
-            display: block;
-            width: 100%;
-            margin: 10px 0;
-            padding: 10px;
-        }
-        button {
-            background-color: #ff6600;
-            color: white;
-            border: none;
-        }
-    </style>
+    
 </head>
 <body>
     
