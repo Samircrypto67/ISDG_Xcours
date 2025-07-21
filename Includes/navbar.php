@@ -1,4 +1,5 @@
 <?php
+
 // Exemple de barre de navigation simple avec liens vers pages principales
 
 ?>
@@ -10,8 +11,8 @@
   justify-content: center;
   gap: 40px;
   font-family: Arial, sans-serif;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-">
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);">
+
   <a href="index.php" style="color: white; text-decoration: none; font-weight: bold;">Accueil</a>
   <a href="ajouter_cours.php" style="color: white; text-decoration: none;">Ajouter un cours</a>
   <a href="modifier_cours.php" style="color: white; text-decoration: none;">Modifier un cours</a>
