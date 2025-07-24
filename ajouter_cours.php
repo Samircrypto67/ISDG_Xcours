@@ -70,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     });
   });
 </script>
+<hr>
 <?php include("Includes/retour_prof.php"); ?>
 
 </body>

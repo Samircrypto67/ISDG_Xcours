@@ -13,10 +13,9 @@
   font-family: Arial, sans-serif;
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);">
 
-  <a href="index.php" style="color: white; text-decoration: none; font-weight: bold;">Accueil</a>
-  <a href="ajouter_cours.php" style="color: white; text-decoration: none;">Ajouter un cours</a>
+  <a href="ajouter_cours.php" style="color: white; text-decoration: none;">Ajouter un cours</a> 
   <a href="modifier_cours.php" style="color: white; text-decoration: none;">Modifier un cours</a>
   <a href="supprimer_cours.php" style="color: white; text-decoration: none;">Supprimer un cours</a>
-  <a href="etudiant.php" style="color: white; text-decoration: none;">Espace étudiant</a>
-  <a href="prof.php" style="color: white; text-decoration: none;">Espace professeur</a>
+  <a href="student.php" style="color: white; text-decoration: none;">Espace étudiant</a>
+  <a href="liste_des_professeur.php" style="color: white; text-decoration: none;">Espace professeur</a>
 </nav>

@@ -1,86 +1,106 @@
-       .logo-container {
-    margin-top: 50px;
-    text-align: center;
-    font-size: 48px;
-    font-weight: bold;
-    color: orange;
-    animation: glow 2s infinite alternate ease-in-out;
-    text-shadow: 2px 2px 5px blue;
-  }
+/* === Logo animé au centre === */
+.logo-container {
+  margin-top: 50px; /* Espace au-dessus du logo */
+  text-align: center; /* Centrage horizontal */
+  font-size: 48px; /* Taille du logo (texte) */
+  font-weight: bold; /* Gras */
+  color: orange; /* Couleur orange */
+  animation: glow 2s infinite alternate ease-in-out; /* Animation en boucle */
+  text-shadow: 2px 2px 5px blue; /* Ombre bleue */
+}
 
-  @keyframes glow {
-    from {
-      transform: scale(1) rotate(0deg);
-      text-shadow: 0 0 10px blue, 0 0 20px gray;
-    }
-    to {
-      transform: scale(1.1) rotate(5deg);
-      text-shadow: 0 0 20px orange, 0 0 30px blue;
-    }
+/* === Animation "glow" pour le logo === */
+@keyframes glow {
+  from {
+    transform: scale(1) rotate(0deg); /* État initial */
+    text-shadow: 0 0 10px blue, 0 0 20px gray; /* Effet lumineux initial */
   }
-        body {
-            margin: 0;
-            background: linear-gradient(135deg, #1e1e2f, #2c2c2c);
-            font-family: 'Segoe UI', sans-serif;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background-color: #2f2f2f;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-            position: relative;
-            left: 35px;
-            width: 350px;
-        }
-        h1 {
-            font-size: 40px;
-            color: #FFA500; /* Orange */
-            margin-bottom: 30px;
-        }
-        h2 {
-            margin-bottom: 25px;
-            color: #4e9af1; /* Bleu */
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 6px;
-            background-color: #444;
-            color: white;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #FFA500; /* Orange */
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        button:hover {
-            background-color: #e69500;
-        }
-        .error {
-            color: red;
-            margin-top: 10px;
-        }
-        .link {
-            margin-top: 15px;
-            font-size: 14px;
-        }
-        .link a {
-            color: #4e9af1;
-            text-decoration: none;
-        }
-        .link a:hover {
-            text-decoration: underline;
-        }
- 
+  to {
+    transform: scale(1.1) rotate(5deg); /* Légère rotation + zoom */
+    text-shadow: 0 0 20px orange, 0 0 30px blue; /* Effet lumineux final */
+  }
+}
+
+/* === Style du corps de la page === */
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c2c); /* Dégradé sombre */
+  font-family: 'Segoe UI', sans-serif; /* Police moderne */
+  color: #fff; /* Texte blanc par défaut */
+  display: flex; /* Centrage vertical + horizontal */
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Pleine hauteur écran */
+}
+
+/* === Boîte de formulaire principale === */
+.container {
+  background-color: #2f2f2f; /* Fond foncé */
+  padding: 40px; /* Espace intérieur */
+  border-radius: 15px; /* Coins arrondis */
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6); /* Ombre autour */
+  position: relative;
+  left: 35px; /* Décalage vers la droite (peut gêner en responsive) */
+  width: 350px; /* Largeur fixe */
+}
+
+/* === Titres === */
+h1 {
+  font-size: 40px;
+  color: #FFA500; /* Orange */
+  margin-bottom: 30px;
+}
+
+h2 {
+  margin-bottom: 25px;
+  color: #4e9af1; /* Bleu clair */
+}
+
+/* === Champs de saisie === */
+input {
+  width: 100%; /* Pleine largeur */
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  background-color: #444; /* Fond gris foncé */
+  color: white; /* Texte blanc */
+}
+
+/* === Bouton de validation === */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #FFA500; /* Orange */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* === Effet hover sur bouton === */
+button:hover {
+  background-color: #e69500; /* Orange plus foncé */
+}
+
+/* === Message d'erreur === */
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* === Lien vers d'autres pages === */
+.link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.link a {
+  color: #4e9af1; /* Bleu clair */
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline; /* Souligné au survol */
+}

@@ -1,28 +1,32 @@
 body {
-            background-color: #e6f0ff;
-            font-family: Arial;
-            padding: 40px;
-            color: #333;
-        }
-        h2 {
-            color: #0077cc;
-        }
-        form {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            margin: auto;
-            box-shadow: 0 0 10px #ccc;
-        }
-        input, select, button {
-            display: block;
-            width: 100%;
-            margin: 10px 0;
-            padding: 10px;
-        }
-        button {
-            background-color: #ff6600;
-            color: white;
-            border: none;
-        }
+    background-color: #e6f0ff;  /* Couleur de fond bleu très clair pour une ambiance douce */
+    font-family: Arial;         /* Police simple et lisible */
+    padding: 40px;              /* Espacement intérieur autour du contenu */
+    color: #333;                /* Texte en gris foncé pour un bon contraste */
+}
+
+h2 {
+    color: #0077cc;  /* Titre en bleu vif pour attirer l’attention */
+}
+
+form {
+    background: #fff;                  /* Fond blanc du formulaire pour ressortir sur le bleu */
+    padding: 20px;                     /* Espace intérieur dans le formulaire */
+    border-radius: 10px;               /* Coins arrondis pour un design doux */
+    width: 300px;                      /* Largeur fixe du formulaire */
+    margin: auto;                      /* Centre le formulaire horizontalement */
+    box-shadow: 0 0 10px #ccc;         /* Ombre légère pour donner du relief */
+}
+
+input, select, button {
+    display: block;   /* Chaque élément sur sa propre ligne */
+    width: 100%;      /* Prend toute la largeur du conteneur */
+    margin: 10px 0;   /* Espacement vertical entre les champs */
+    padding: 10px;    /* Rendu plus confortable à utiliser */
+}
+
+button {
+    background-color: #ff6600;  /* Bouton orange vif pour bien se distinguer */
+    color: white;               /* Texte du bouton en blanc pour contraste */
+    border: none;               /* Supprime les bordures par défaut */
+}

@@ -12,10 +12,16 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->execute([$_SESSION['user_id']]);
 $etudiant = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Récupérer les cours
-$cours_stmt = $pdo->prepare("SELECT * FROM cours");
-$cours_stmt->execute();
-$cours = $cours_stmt->fetchAll(PDO::FETCH_ASSOC);
+// Récupérer les cours triés par jour
+try {
+    $sql = "SELECT jour, nom, heure FROM cours ORDER BY FIELD(jour, 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche')";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $cours = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+    $cours = []; // Pour éviter les erreurs plus bas
+}
 
 // Définir la photo (image par défaut si vide)
 $photo = !empty($etudiant['photo']) ? htmlspecialchars($etudiant['photo']) : 'https://via.placeholder.com/150?text=Photo';
@@ -35,7 +41,7 @@ $photo = !empty($etudiant['photo']) ? htmlspecialchars($etudiant['photo']) : 'ht
 
         <div class="mt-5">
             <h3>📚 Liste des cours disponibles</h3>
-            <table class="table table-bordered table-hover table table-striped"> 
+            <table class="table table-bordered table-hover table-striped">
                 <thead>
                     <tr>
                         <th>Jour</th>      
@@ -52,9 +58,9 @@ $photo = !empty($etudiant['photo']) ? htmlspecialchars($etudiant['photo']) : 'ht
                                 <td><?= htmlspecialchars($cours_item['heure'] ?? '') ?></td>
                             </tr>
                         <?php endforeach; ?>
-                     <?php else: ?>
+                    <?php else: ?>
                         <tr>
-                            <td colspan="3">Aucun cours disponible.</td>"
+                            <td colspan="3">Aucun cours disponible.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
@@ -69,11 +75,12 @@ $photo = !empty($etudiant['photo']) ? htmlspecialchars($etudiant['photo']) : 'ht
                     <h4><?= htmlspecialchars(($etudiant['prenom'] ?? '') . ' ' . ($etudiant['nom'] ?? '')) ?></h4>
                 </div>
                 <ul class="list-group list-group-flush mt-3">
-                    <li class="list-group-item"><strong>Date de naissance :</strong> <?= htmlspecialchars($etudiant['date_naissance'] ?? '') ?></li>
-                    <li class="list-group-item"><strong>Pays d'origine :</strong> <?= htmlspecialchars($etudiant['pays'] ?? '') ?></li>
-                    <li class="list-group-item"><strong>Formation :</strong> <?= htmlspecialchars($etudiant['formation'] ?? '') ?></li>
-                    <li class="list-group-item"><strong>Email :</strong> <?= htmlspecialchars($etudiant['email'] ?? '') ?></li>
-                </ul>
+    <li class="list-group-item"><strong>Date de naissance :</strong> <?= htmlspecialchars($etudiant['date_naissance'] ?? '') ?></li>
+    <li class="list-group-item"><strong>Formation :</strong> <?= htmlspecialchars($etudiant['formation'] ?? '') ?></li>
+    <li class="list-group-item"><strong>Spécialité :</strong> <?= htmlspecialchars($etudiant['specialite'] ?? 'Non définie') ?></li>
+    <li class="list-group-item"><strong>Email :</strong> <?= htmlspecialchars($etudiant['email'] ?? '') ?></li>
+</ul>
+
             </div>
         </div>
     </div>

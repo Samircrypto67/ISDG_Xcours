@@ -1,50 +1,90 @@
+/* Style général du corps de page */
 body {
-      background: linear-gradient(135deg, #111, #222);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    .container {
-      background-color: #2f2f2f;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-      width: 400px;
-      text-align: center;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 6px;
-      border: none;
-      background-color: #444;
-      color: white;
-    }
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #FFA500;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .success-animation {
-      font-size: 20px;
-      color: #00ff99;
-      animation: fadeInOut 3s ease-in-out forwards;
-    }
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: scale(0.9); }
-      20% { opacity: 1; transform: scale(1.05); }
-      80% { opacity: 1; transform: scale(1); }
-      100% { opacity: 0; transform: scale(0.9); }
-    }
-    .error {
-      color: red;
-      margin-top: 10px;
-    }
+  background: linear-gradient(135deg, #111, #222); /* Dégradé sombre en fond */
+  color: #fff;                                     /* Texte blanc pour contraste */
+  display: flex;                                   /* Centrage vertical et horizontal */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;                               /* Hauteur minimum écran entier */
+  padding: 20px;                                   /* Espace intérieur pour éviter les bords */
+  margin: 0;                                       /* Supprime les marges par défaut */
+  font-family: 'Segoe UI', sans-serif;             /* Police moderne et lisible */
+  box-sizing: border-box;                          /* Inclut le padding/border dans le calcul de taille */
+}
+
+/* Conteneur du formulaire ou contenu central */
+.container {
+  background-color: #2f2f2f;                        /* Fond gris foncé du bloc */
+  padding: 30px 20px;                               /* Espacement intérieur */
+  border-radius: 15px;                              /* Coins arrondis */
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);          /* Ombre autour du cadre */
+  width: 100%;                                      /* Prend toute la largeur disponible */
+  max-width: 340px;                                 /* Limite la largeur du cadre */
+  text-align: center;                               /* Centrage du contenu */
+  margin: auto;                                     /* Centre horizontalement */
+}
+.Pass {
+  position:relative; max-width:300px;
+  width:100%; 
+  padding-right:50px;
+  position:absolute; right:5px; top:50%; transform:translateY(-50%) ;
+}
+/* Champs de formulaire (input et select) */
+input, select {
+  width: 100%;                                       /* Pleine largeur */
+  padding: 10px;                                     /* Espacement intérieur */
+  margin: 10px 0;                                    /* Espacement vertical entre les champs */
+  border-radius: 6px;                                /* Coins arrondis */
+  border: none;                                      /* Pas de bordure par défaut */
+  background-color: #444;                            /* Fond gris foncé */
+  color: white;                                      /* Texte blanc */
+  box-sizing: border-box;                            /* Inclut padding dans la largeur */
+}
+
+/* Bouton principal */
+button {
+  width: 100%;                                       /* Pleine largeur */
+  padding: 12px;                                     /* Espacement intérieur */
+  background-color: #FFA500;                         /* Orange vif */
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;                                       /* Texte noir sur bouton orange */
+}
+
+/* Message de succès avec animation */
+.success-animation {
+  font-size: 20px;
+  color: #00ff99;                                    /* Vert fluo pour attirer l’attention */
+  animation: fadeInOut 3s ease-in-out forwards;      /* Animation personnalisée */
+}
+
+/* Définition de l’animation */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: scale(0.9); }
+  20% { opacity: 1; transform: scale(1.05); }
+  80% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.9); }
+}
+
+/* Message d’erreur */
+.error {
+  color: red;                                        /* Texte rouge pour les erreurs */
+  margin-top: 10px;
+}
+
+/* ✅ Styles responsive pour les petits écrans (mobile) */
+@media (max-width: 500px) {
+  .container {
+    padding: 20px;                                   /* Réduction du padding sur mobile */
+  }
+
+  .success-animation {
+    font-size: 16px;                                 /* Réduction de la taille de texte */
+  }
+
+  button {
+    padding: 10px;                                   /* Ajustement du bouton pour petits écrans */
+  }
+}

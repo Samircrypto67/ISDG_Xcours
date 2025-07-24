@@ -1,46 +1,55 @@
 body {
-      font-family: Arial, sans-serif;
-      padding: 40px;
-      background-color: rgba(255, 255, 255, 0.95);
-      position: relative;
-    }
-    h2 {
-      color: #0077cc;
-      text-align: center;
-    }
-    form {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 420px;
-      margin: 30px auto;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
-    input, select, button {
-      margin: 10px 0;
-      padding: 10px;
-      width: 100%;
-    }
-    button {
-      background-color: #ff6600;
-      color: white;
-      border: none;
-    }
-    .success {
-      color: green;
-      text-align: center;
-      font-weight: bold;
-    }
-    .error {
-      color: red;
-      text-align: center;
-      font-weight: bold;
-    }
-    img.fullscreen {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      object-fit: cover;
-      opacity: 0.1;
-      z-index: -1;
-    }
+  font-family: Arial, sans-serif; /* Police simple et lisible */
+  padding: 40px;                  /* Espacement autour du contenu */
+  background-color: rgba(255, 255, 255, 0.95); /* Fond blanc légèrement transparent */
+  position: relative;            /* Pour positionner les enfants en absolu si besoin */
+}
+
+h2 {
+  color: #0077cc;                /* Bleu vif */
+  text-align: center;            /* Centrage horizontal */
+}
+
+form {
+  background: #fff;              /* Fond blanc du formulaire */
+  padding: 20px;                 /* Espace intérieur */
+  border-radius: 12px;           /* Coins arrondis */
+  max-width: 420px;              /* Largeur maximale */
+  margin: 30px auto;             /* Centrage horizontal avec marge verticale */
+  box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Ombre légère */
+}
+
+input, select, button {
+  margin: 10px 0;                /* Espace entre les champs */
+  padding: 10px;                 /* Intérieur des champs */
+  width: 100%;                   /* Pleine largeur */
+}
+
+button {
+  background-color: #ff6600;     /* Orange vif */
+  color: white;                  /* Texte blanc */
+  border: none;                  /* Pas de bordure */
+}
+
+.success {
+  color: green;                  /* Message de succès en vert */
+  text-align: center;
+  font-weight: bold;
+}
+
+.error {
+  color: red;                    /* Message d'erreur en rouge */
+  text-align: center;
+  font-weight: bold;
+}
+
+img.fullscreen {
+  position: fixed;               /* Position fixe : reste derrière même en scrollant */
+  top: 0;
+  left: 0;
+  width: 100vw;                  /* Pleine largeur écran */
+  height: 100vh;                 /* Pleine hauteur écran */
+  object-fit: cover;             /* Couvre toute la zone sans déformer */
+  opacity: 0.1;                  /* Très transparent */
+  z-index: -1;                   /* Derrière tout le contenu */
+}

@@ -1,90 +1,98 @@
- body, html {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-            background-color: #f5f7fa;
-        }
+/* Supprime les marges et débordements par défaut, définit la police et la couleur de fond globale */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Empêche le défilement global (géré par les sections) */
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa; /* Fond gris clair élégant */
+}
 
-        /* Navbar fixe */
-        nav.navbar-fixed {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 50px;
-            background-color: #004080;
-            color: white;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            z-index: 1000;
-            font-weight: bold;
-            font-size: 18px;
-        }
+/* Barre de navigation fixe en haut de l’écran */
+nav.navbar-fixed {
+    position: fixed;     /* Toujours visible en haut */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background-color: #004080; /* Bleu foncé */
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;        /* Par-dessus les autres éléments */
+    font-weight: bold;
+    font-size: 18px;
+}
 
-        /* Pour ne pas que la navbar cache le contenu */
-        .content-wrapper {
-            padding-top: 60px; /* hauteur navbar + marge */
-            height: 100vh;
-            position: relative;
-        }
+/* Wrapper du contenu pour éviter qu’il soit caché par la navbar */
+.content-wrapper {
+    padding-top: 60px;     /* Laisse de la place pour la navbar */
+    height: 100vh;
+    position: relative;
+}
 
-        .section {
-            height: 100vh;
-            width: 100vw;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            transition: top 0.8s ease-in-out;
-            overflow-y: auto;
-            background-color: white;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-            padding: 20px;
-        }
+/* Chaque section du site qui peut apparaître à l’écran */
+.section {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;           /* Superposée à l'écran */
+    top: 100%;                    /* Positionnée en dehors de la vue initialement */
+    left: 0;
+    transition: top 0.8s ease-in-out; /* Animation douce pour l’apparition */
+    overflow-y: auto;            /* Permet le scroll interne dans la section */
+    background-color: white;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Légère ombre intérieure */
+    padding: 20px;
+}
 
-        .section.active {
-            top: 0;
-        }
+/* Section active visible à l’écran */
+.section.active {
+    top: 0;
+}
 
-        .nav-buttons {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 999;
-        }
+/* Conteneur pour les boutons de navigation (en bas, centré) */
+.nav-buttons {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
 
-        .nav-buttons button {
-            margin: 0 10px;
-            padding: 10px 20px;
-            background-color: #004080;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
+/* Style des boutons de navigation */
+.nav-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #004080;   /* Bleu foncé */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
 
-        .nav-buttons button:hover {
-            background-color: #002850;
-        }
+/* Effet au survol des boutons de navigation */
+.nav-buttons button:hover {
+    background-color: #002850;   /* Bleu encore plus foncé */
+}
 
-        /* Style bouton retour (à adapter dans includes/retour.php) */
-        .retour-btn {
-            position: fixed;
-            top: 10px;
-            right: 20px;
-            background-color: #0066cc;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 6px 12px;
-            cursor: pointer;
-            z-index: 1100;
-            font-size: 14px;
-        }
-        .retour-btn:hover {
-            background-color: #004080;
-        }
+/* Bouton de retour fixe en haut à droite */
+.retour-btn {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    background-color: #0066cc;   /* Bleu moyen */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    z-index: 1100;
+    font-size: 14px;
+}
+
+/* Effet au survol du bouton retour */
+.retour-btn:hover {
+    background-color: #004080;
+}

@@ -74,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="time" name="heure" required />
     <button type="submit">Modifier</button>
   </form>
+  <hr>
   <?php include 'Includes/retour_prof.php'; ?>
   <script>
     document.body.style.opacity = 0;
