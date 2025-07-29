@@ -53,7 +53,13 @@ $professeurs = $pdo->query("SELECT * FROM users WHERE role = 'professeur' ORDER 
                     <input type="text" name="nom" class="form-control" placeholder="Nom" required>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="specialite" class="form-control" placeholder="Spécialité" required>
+                     <label for="specialite">Choisis ta spécialité :</label>
+                        <select name="specialite" id="specialite" required>
+                            <option value="">-- Sélectionne --</option>
+                            <option value="SIO/SLAM">SLAM</option>
+                            <option value="SIO/SISR">SISR</option>
+                            <option value="MCO">MCO</option>
+                        </select>
                 </div>
                 <div class="col-12 text-end">
                     <button type="submit" name="ajouter" class="btn btn-success">Ajouter</button>

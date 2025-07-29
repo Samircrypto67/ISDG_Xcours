@@ -10,12 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email'] ?? '');
     $mot_de_passe = $_POST['mot_de_passe'] ?? '';
     $date_naissance = $_POST['date_naissance'] ?? '';
-    $pays = $_POST['pays'] ?? '';
     $formation = $_POST['formation'] ?? '';
     $specialite = $_POST['specialite'] ?? '';
     $role = $_POST['role'] ?? 'etudiant';
 
-    if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($mot_de_passe) && !empty($date_naissance) && !empty($pays) && !empty($formation) && !empty($specialite)) {
+    if (!empty($nom) && !empty($prenom) && !empty($email) && !empty($mot_de_passe) && !empty($date_naissance) && !empty($formation) && !empty($specialite)) {
 
         // Gestion upload photo
         $photoPath = null;
@@ -50,9 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $hashed_password = password_hash($mot_de_passe, PASSWORD_DEFAULT);
 
             try {
-                $stmt = $pdo->prepare("INSERT INTO users (nom, prenom, email, mot_de_passe, date_naissance, pays, formation, specialite, photo, role) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                $stmt->execute([$nom, $prenom, $email, $hashed_password, $date_naissance, $pays, $formation, $specialite, $photoPath, $role]);
+                $stmt = $pdo->prepare("INSERT INTO users (nom, prenom, email, mot_de_passe, date_naissance, formation, specialite, photo, role) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->execute([$nom, $prenom, $email, $hashed_password, $date_naissance, $formation, $specialite, $photoPath, $role]);
 
                 $success = true;
             } catch (PDOException $e) {
@@ -79,7 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php if ($success): ?>
       <p class="success-animation">✅ Inscription réussie ! Redirection en cours...</p>
 
-      <!-- Affichage de la photo -->
       <?php if (!empty($photoPath)): ?>
         <p>Photo de profil :</p>
         <img src="<?php echo htmlspecialchars($photoPath); ?>" alt="Photo de l'étudiant" style="max-width: 200px;">
@@ -98,10 +96,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="prenom" placeholder="Prénom" required>
         <input type="email" name="email" placeholder="Email" required>
 
-        <div class="Pass">
-          <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="Mot de passe" required> 
-          <button type="button" onclick="togglePassword()">VOIR</button>
-        </div>
+        <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="Mot de passe" required> 
+        <button type="button" onclick="togglePassword()">VOIR</button>
 
         <input type="date" name="date_naissance" required>
         <input type="text" name="formation" placeholder="Formation" required>
@@ -133,10 +129,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
 
   <script>
-  function togglePassword() {
-    const input = document.getElementById('mot_de_passe');
-    input.type = (input.type === 'password') ? 'text' : 'password';
-  }
+    function togglePassword() {
+      const input = document.getElementById('mot_de_passe');
+      input.type = (input.type === 'password') ? 'text' : 'password';
+    }
   </script>
 </body>
 </html>
